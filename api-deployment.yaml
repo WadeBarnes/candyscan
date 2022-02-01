@@ -50,17 +50,13 @@ spec:
           resources: {}
           volumeMounts:
             - mountPath: /home/indyscan/indyscan-api/app-config-docker/candydev.json
-              name: api-config
+              name: api-config-volume
               subPath: candydev.json
-          command:
-          - tail
-          - "-f"
-          - /dev/null
       volumes:
-        - name: indyscan-api-config
+        - name: api-config-volume
           configMap:
             name: api-config
             items:
-              - key: candydev.json
+              - key: api_config.json
                 path: candydev.json
 status: {}

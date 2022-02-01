@@ -49,11 +49,23 @@ spec:
           name: indyscan-daemon
           resources: {}
           volumeMounts:
-            - mountPath: /home/indyscan/indyscan-daemon/app-configs-docker
-              name: indyscan-daemon-config
+            - mountPath: /home/indyscan/indyscan-daemon/app-configs-docker/candydev.json
+              name: daemon-config-volume
+              subPath: candydev.json
+            - mountPath: /home/indyscan/indyscan-daemon/app-configs-docker/genesis/candydev.txn
+              name: candydev-genesis-volume
+              subPath: candydev.txn
       volumes:
-        - name: indyscan-daemon-config
-          hostPath:
-            path: /home/pat-idlab/gitlab/kubernetes/indyscan/app-configs-daemon
-            type: Directory
+        - name: daemon-config-volume
+          configMap:
+            name: daemon-config
+            items:
+              - key: daemon_config.json
+                path: candydev.json
+        - name: candydev-genesis-volume
+          configMap:
+            name: candydev-genesis
+            items:
+              - key: candydev.txn
+                path: candydev.txn
 status: {}
