@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: indyscan-daemon
+  name: indyscan-daemon
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: indyscan-daemon
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/esnet: "true"
+        io.kompose.network/indyscan: "true"
+        io.kompose.service: indyscan-daemon
+    spec:
+      restartPolicy: Always
+      containers:
+        - env:
+            - name: AUTOSTART
+              value: "true"
+            - name: ENABLE_LOGFILES
+              value: "false"
+            - name: LOG_HTTP_REQUESTS
+              value: "true"
+            - name: LOG_HTTP_RESPONSES
+              value: "true"
+            - name: LOG_LEVEL
+              value: info
+            - name: SERVER_ENABLED
+              value: "true"
+            - name: SERVER_PORT
+              value: "3709"
+            - name: WORKER_CONFIGS
+              value: /home/indyscan/indyscan-daemon/app-configs-docker/candydev.json
+          image: pstas/indyscan-daemon:4.1.0
+          name: indyscan-daemon
+          resources: {}
+          volumeMounts:
+            - mountPath: /home/indyscan/indyscan-daemon/app-configs-docker
+              name: indyscan-daemon-config
+      volumes:
+        - name: indyscan-daemon-config
+          hostPath:
+            path: /home/pat-idlab/gitlab/kubernetes/indyscan/app-configs-daemon
+            type: Directory
+status: {}

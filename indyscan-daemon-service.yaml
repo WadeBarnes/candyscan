@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: indyscan-daemon
+  name: indyscan-daemon
+spec:
+  ports:
+    - name: "3709"
+      port: 3709
+      targetPort: 3709
+  selector:
+    io.kompose.service: indyscan-daemon
+status:
+  loadBalancer: {}

@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-config
+data:
+  api_config.json: |
+    [
+      {
+        "id": "CANDY_DEV",
+        "ui": {
+          "priority": 1,
+          "display": "CANdy-dev",
+          "display-long": "CANdy-dev Indy Network",
+          "description": "Development network for collaboration between Quebec, Ontario and British-Columbia.",
+          "tutorial": "This Indy Explorer is hosted in Canada by IDLab",
+          "tutorial-link": "https://idlab.org/",
+          "logo-address": "https://idlab.org/wp-content/themes/idlab/favicon.png"
+        },
+        "aliases": [
+          "CANDY_DEV"
+        ],
+        "es" : {
+          "index": "txs-candydev"
+        }
+      }
+    ]

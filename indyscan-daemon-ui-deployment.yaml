@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: indyscan-daemon-ui
+  name: indyscan-daemon-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: indyscan-daemon-ui
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/indyscan: "true"
+        io.kompose.service: indyscan-daemon-ui
+    spec:
+      containers:
+        - env:
+            - name: CHOKIDAR_USEPOLLING
+              value: "true"
+            - name: PORT
+              value: "3710"
+            - name: PROXY_API_URL
+              value: http://indyscan-daemon.indyscan.svc.dev.idlab.org:3709
+          image: pstas/indyscan-daemon-ui:4.1.0
+          name: indyscan-daemon-ui
+          ports:
+            - containerPort: 3710
+          resources: {}
+      restartPolicy: Always
+status: {}

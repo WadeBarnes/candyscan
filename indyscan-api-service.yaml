@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: indyscan-api
+  name: indyscan-api
+spec:
+  ports:
+    - name: "3708"
+      port: 3708
+      targetPort: 3708
+  selector:
+    io.kompose.service: indyscan-api
+status:
+  loadBalancer: {}
