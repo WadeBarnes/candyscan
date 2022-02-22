@@ -1,34 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.26.0 (40646f47)
-  creationTimestamp: null
-  labels:
-    io.kompose.service: indyscan-daemon
   name: indyscan-daemon
+  labels:
+    app: indyscan-daemon
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: indyscan-daemon
-  strategy:
-    type: Recreate
+      app: indyscan-daemon
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert
-        kompose.version: 1.26.0 (40646f47)
-      creationTimestamp: null
       labels:
-        io.kompose.network/esnet: "true"
-        io.kompose.network/indyscan: "true"
-        io.kompose.service: indyscan-daemon
+        app: indyscan-daemon
     spec:
-      restartPolicy: Always
       containers:
-        - env:
+        - image: pstas/indyscan-daemon:4.1.0
+          name: indyscan-daemon
+          env:
             - name: AUTOSTART
               value: "true"
             - name: ENABLE_LOGFILES
@@ -45,14 +34,11 @@ spec:
               value: "3709"
             - name: WORKER_CONFIGS
               value: /home/indyscan/indyscan-daemon/app-configs-docker/candydev.json
-          image: pstas/indyscan-daemon:4.1.0
-          name: indyscan-daemon
-          resources: {}
           volumeMounts:
             - mountPath: /home/indyscan/indyscan-daemon/app-configs-docker/candydev.json
               name: daemon-config-volume
               subPath: candydev.json
-            - mountPath: /home/indyscan/indyscan-daemon/app-configs-docker/genesis/candydev.txn
+            - mountPath: /home/indyscan/indyscan-daemon/app-configs-docker/genesis/CANDY_DEV.txn
               name: candydev-genesis-volume
               subPath: candydev.txn
       volumes:
@@ -68,4 +54,3 @@ spec:
             items:
               - key: candydev.txn
                 path: candydev.txn
-status: {}

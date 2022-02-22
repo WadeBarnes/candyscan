@@ -14,7 +14,7 @@ data:
           "description": "Development network for collaboration between Quebec, Ontario and British-Columbia.",
           "tutorial": "This Indy Explorer is hosted in Canada by IDLab",
           "tutorial-link": "https://idlab.org/",
-          "logo-address": "https://idlab.org/wp-content/themes/idlab/favicon.png"
+          "logo-address": ""
         },
         "aliases": [
           "CANDY_DEV"

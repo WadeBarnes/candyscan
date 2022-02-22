@@ -1,38 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.26.0 (40646f47)
-  creationTimestamp: null
-  labels:
-    io.kompose.service: indyscan-api
   name: indyscan-api
+  labels:
+    app: indyscan-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: indyscan-api
-  strategy:
-    type: Recreate
+      app: indyscan-api
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert
-        kompose.version: 1.26.0 (40646f47)
-      creationTimestamp: null
       labels:
-        io.kompose.network/esnet: "true"
-        io.kompose.network/indyscan: "true"
-        io.kompose.service: indyscan-api
+        app: indyscan-api
     spec:
-      restartPolicy: Always
       containers:
-        - env:
+        - image: pstas/indyscan-api:4.1.0
+          name: indyscan-api
+          ports:
+            - containerPort: 3708
+          env:
             - name: AUTOSTART
               value: "true"
             - name: ES_URL
-              value: http://indyscan-elasticsearch.indyscan.svc.dev.idlab.org:9200
+              value: http://indyscan-elasticsearch.candy:9200
             - name: LOG_HTTP_REQUESTS
               value: "true"
             - name: LOG_HTTP_RESPONSES
@@ -43,11 +34,6 @@ spec:
               value: /home/indyscan/indyscan-api/app-config-docker/candydev.json
             - name: PORT
               value: "3708"
-          image: pstas/indyscan-api:4.1.0
-          name: indyscan-api
-          ports:
-            - containerPort: 3708
-          resources: {}
           volumeMounts:
             - mountPath: /home/indyscan/indyscan-api/app-config-docker/candydev.json
               name: api-config-volume
@@ -59,4 +45,3 @@ spec:
             items:
               - key: api_config.json
                 path: candydev.json
-status: {}
