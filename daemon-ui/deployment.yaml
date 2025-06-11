@@ -1,26 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: indyscan-daemon-ui
+  name: candyscan-daemon-ui
   labels:
-    app: indyscan-daemon-ui
+    name: candyscan-daemon-ui
+    app: candyscan-daemon-ui
     app.kubernetes.io/part-of: CANdyScan
     env: prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: indyscan-daemon-ui
+      app: candyscan-daemon-ui
   template:
     metadata:
       labels:
-        app: indyscan-daemon-ui
+        name: candyscan-daemon-ui
+        app: candyscan-daemon-ui
         app.kubernetes.io/part-of: CANdyScan
         env: prod
     spec:
       containers:
         - image: pstas/indyscan-daemon-ui:4.1.0
-          name: indyscan-daemon-ui
+          name: candyscan-daemon-ui
           ports:
             - containerPort: 3710
           env:
@@ -29,4 +31,4 @@ spec:
             - name: PORT
               value: "3710"
             - name: PROXY_API_URL
-              value: http://indyscan-daemon.candy:3709
+              value: http://candyscan-daemon:3709

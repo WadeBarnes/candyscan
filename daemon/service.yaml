@@ -1,13 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: indyscan-daemon
+  name: candyscan-daemon
   labels:
+    name: candyscan-daemon
     app.kubernetes.io/part-of: CANdyScan
     env: prod
 spec:
   selector:
-    app: indyscan-daemon
+    app: candyscan-daemon
   ports:
     - protocol: TCP
       port: 3709

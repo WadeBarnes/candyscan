@@ -1,26 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: indyscan-daemon
+  name: candyscan-daemon
   labels:
-    app: indyscan-daemon
+    name: candyscan-daemon
+    app: candyscan-daemon
     app.kubernetes.io/part-of: CANdyScan
     env: prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: indyscan-daemon
+      app: candyscan-daemon
   template:
     metadata:
       labels:
-        app: indyscan-daemon
+        name: candyscan-daemon
+        app: candyscan-daemon
         app.kubernetes.io/part-of: CANdyScan
         env: prod
     spec:
       containers:
         - image: pstas/indyscan-daemon:4.1.0
-          name: indyscan-daemon
+          name: candyscan-daemon
           env:
             - name: AUTOSTART
               value: "true"
@@ -37,24 +39,20 @@ spec:
             - name: SERVER_PORT
               value: "3709"
             - name: WORKER_CONFIGS
-              value: /home/indyscan/indyscan-daemon/app-configs-docker/candydev.json
+              value: /home/indyscan/indyscan-daemon/app-configs/candydev.json
           volumeMounts:
-            - mountPath: /home/indyscan/indyscan-daemon/app-configs-docker/candydev.json
-              name: daemon-config-volume
+            - mountPath: /home/indyscan/indyscan-daemon/app-configs/candydev.json
+              name: candyscan-daemon-volume
               subPath: candydev.json
-            - mountPath: /home/indyscan/indyscan-daemon/app-configs-docker/genesis/CANDY_DEV.txn
-              name: candydev-genesis-volume
+            - mountPath: /home/indyscan/indyscan-daemon/app-configs/genesis/CANDY_DEV.txn
+              name: candyscan-daemon-volume
               subPath: candydev.txn
       volumes:
-        - name: daemon-config-volume
+        - name: candyscan-daemon-volume
           configMap:
-            name: daemon-config
+            name: candyscan-daemon
             items:
               - key: daemon_config.json
                 path: candydev.json
-        - name: candydev-genesis-volume
-          configMap:
-            name: candydev-genesis
-            items:
               - key: candydev.txn
                 path: candydev.txn

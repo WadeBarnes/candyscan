@@ -1,25 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: indyscan-elasticsearch
+  name: candyscan-elasticsearch
   labels:
-    app: indyscan-elasticsearch
+    name: candyscan-elasticsearch
+    app: candyscan-elasticsearch
     app.kubernetes.io/part-of: CANdyScan
     env: prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: indyscan-elasticsearch
+      app: candyscan-elasticsearch
   template:
     metadata:
       labels:
-        app: indyscan-elasticsearch
+        name: candyscan-elasticsearch
+        app: candyscan-elasticsearch
         app.kubernetes.io/part-of: CANdyScan
         env: prod
     spec:
       containers:
-        - name: indyscan-elasticsearch
+        - name: candyscan-elasticsearch
           ports:
             - containerPort: 9200
             - containerPort: 9300
@@ -35,8 +37,8 @@ spec:
                 - IPC_LOCK
           volumeMounts:
             - mountPath: /usr/share/elasticsearch/data
-              name: indyscan-es
+              name: candyscan-elasticsearch
       volumes:
-        - name: indyscan-es
+        - name: candyscan-elasticsearch
           persistentVolumeClaim:
-            claimName: indyscan-es
+            claimName: candyscan-elasticsearch

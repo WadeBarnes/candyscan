@@ -1,9 +1,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: indyscan-es
+  name: candyscan-elasticsearch
   labels:
-    io.kompose.service: indyscan-es
+    name: candyscan-elasticsearch
+    io.kompose.service: candyscan-elasticsearch
     app.kubernetes.io/part-of: CANdyScan
     env: prod
 spec:

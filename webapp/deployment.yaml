@@ -1,33 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: indyscan-webapp
+  name: candyscan-webapp
   labels:
-    app: indyscan-webapp
+    name: candyscan-webapp
+    app: candyscan-webapp
     app.kubernetes.io/part-of: CANdyScan
     env: prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: indyscan-webapp
+      app: candyscan-webapp
   template:
     metadata:
       labels:
-        app: indyscan-webapp
+        name: candyscan-webapp
+        app: candyscan-webapp
         app.kubernetes.io/part-of: CANdyScan
         env: prod
     spec:
       containers:
-        - name: indyscan-webapp
+        - name: candyscan-webapp
           image: idlab-docker.internal.idlab.org/idlab.org/solution_catalogue/indy/candyscan/webapp:0.0.2
           ports:
             - containerPort: 3707
           env:
             - name: DAEMON_WS_URL
-              value: http://indyscan-daemon.candy:3709
+              value: http://candyscan-daemon:3709
             - name: INDYSCAN_API_URL
-              value: http://indyscan-api.candy:3708
+              value: http://candyscan-api:3708
             - name: LOG_HTTP_REQUESTS
               value: "true"
             - name: LOG_HTTP_RESPONSES

@@ -1,33 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: indyscan-api
+  name: candyscan-api
   labels:
-    app: indyscan-api
+    name: candyscan-api
+    app: candyscan-api
     app.kubernetes.io/part-of: CANdyScan
     env: prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: indyscan-api
+      app: candyscan-api
   template:
     metadata:
       labels:
-      app: indyscan-api
+      name: candyscan-api
+      app: candyscan-api
       app.kubernetes.io/part-of: CANdyScan
       env: prod
     spec:
       containers:
         - image: pstas/indyscan-api:4.1.0
-          name: indyscan-api
+          name: candyscan-api
           ports:
             - containerPort: 3708
           env:
             - name: AUTOSTART
               value: "true"
             - name: ES_URL
-              value: http://indyscan-elasticsearch.candy:9200
+              value: http://candyscan-elasticsearch:9200
             - name: LOG_HTTP_REQUESTS
               value: "true"
             - name: LOG_HTTP_RESPONSES
@@ -35,17 +37,17 @@ spec:
             - name: LOG_LEVEL
               value: debug
             - name: NETWORKS_CONFIG_PATH
-              value: /home/indyscan/indyscan-api/app-config-docker/candydev.json
+              value: /home/indyscan/indyscan-api/app-config/candydev.json
             - name: PORT
               value: "3708"
           volumeMounts:
-            - mountPath: /home/indyscan/indyscan-api/app-config-docker/candydev.json
-              name: api-config-volume
+            - mountPath: /home/indyscan/indyscan-api/app-config/candydev.json
+              name: candyscan-api-volume
               subPath: candydev.json
       volumes:
-        - name: api-config-volume
+        - name: candyscan-api-volume
           configMap:
-            name: api-config
+            name: candyscan-api
             items:
               - key: api_config.json
                 path: candydev.json

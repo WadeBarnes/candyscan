@@ -1,13 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: indyscan-kibana
+  name: candyscan-kibana
   labels:
+    name: candyscan-kibana
     app.kubernetes.io/part-of: CANdyScan
     env: prod
 spec:
   selector:
-    app: indyscan-kibana
+    app: candyscan-kibana
   ports:
     - protocol: TCP
       port: 5601

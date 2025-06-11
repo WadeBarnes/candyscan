@@ -3,6 +3,7 @@ kind: NetworkPolicy
 metadata:
   name: indyscan
   labels:
+    name: indyscan
     app.kubernetes.io/part-of: CANdyScan
     env: prod
 spec:
