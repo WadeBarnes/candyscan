@@ -1,9 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: indyscan-daemon-ui
   labels:
     app: indyscan-daemon-ui
-  name: indyscan-daemon-ui
+    app.kubernetes.io/part-of: CANdyScan
+    env: prod
 spec:
   replicas: 1
   selector:
@@ -13,6 +15,8 @@ spec:
     metadata:
       labels:
         app: indyscan-daemon-ui
+        app.kubernetes.io/part-of: CANdyScan
+        env: prod
     spec:
       containers:
         - image: pstas/indyscan-daemon-ui:4.1.0

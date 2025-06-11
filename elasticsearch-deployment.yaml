@@ -1,9 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: indyscan-elasticsearch
   labels:
     app: indyscan-elasticsearch
-  name: indyscan-elasticsearch
+    app.kubernetes.io/part-of: CANdyScan
+    env: prod
 spec:
   replicas: 1
   selector:
@@ -13,6 +15,8 @@ spec:
     metadata:
       labels:
         app: indyscan-elasticsearch
+        app.kubernetes.io/part-of: CANdyScan
+        env: prod
     spec:
       containers:
         - name: indyscan-elasticsearch

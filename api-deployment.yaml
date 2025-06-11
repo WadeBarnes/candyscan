@@ -4,6 +4,8 @@ metadata:
   name: indyscan-api
   labels:
     app: indyscan-api
+    app.kubernetes.io/part-of: CANdyScan
+    env: prod
 spec:
   replicas: 1
   selector:
@@ -12,7 +14,9 @@ spec:
   template:
     metadata:
       labels:
-        app: indyscan-api
+      app: indyscan-api
+      app.kubernetes.io/part-of: CANdyScan
+      env: prod
     spec:
       containers:
         - image: pstas/indyscan-api:4.1.0

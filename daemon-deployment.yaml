@@ -4,6 +4,8 @@ metadata:
   name: indyscan-daemon
   labels:
     app: indyscan-daemon
+    app.kubernetes.io/part-of: CANdyScan
+    env: prod
 spec:
   replicas: 1
   selector:
@@ -13,6 +15,8 @@ spec:
     metadata:
       labels:
         app: indyscan-daemon
+        app.kubernetes.io/part-of: CANdyScan
+        env: prod
     spec:
       containers:
         - image: pstas/indyscan-daemon:4.1.0
