@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: candyscan-web
-          image: idlab-docker.internal.idlab.org/idlab.org/solution_catalogue/indy/candyscan/webapp:0.0.2
+          image: ghcr.io/patrik-stas/indyscan/indyscan-webapp:4.6.1
           ports:
             - containerPort: 3707
           env:

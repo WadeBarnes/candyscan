@@ -23,7 +23,7 @@ spec:
         env: prod
     spec:
       containers:
-        - image: pstas/indyscan-api:4.1.0
+        - image: ghcr.io/patrik-stas/indyscan/indyscan-api:4.6.1
           name: candyscan-api
           ports:
             - containerPort: 3708

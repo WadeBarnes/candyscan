@@ -23,7 +23,7 @@ spec:
         env: prod
     spec:
       containers:
-        - image: pstas/indyscan-daemon-ui:4.1.0
+        - image: ghcr.io/patrik-stas/indyscan/indyscan-daemon-ui:4.6.1
           name: candyscan-daemon-ui
           ports:
             - containerPort: 3710
