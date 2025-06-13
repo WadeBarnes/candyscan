@@ -10,14 +10,14 @@ metadata:
     role: web
     env: prod
   annotations:
-    kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: openshift-default
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: openshift-default
-  tls:
-    - hosts:
-        - candyscan.digitaltrust.gov.bc.ca
-      secretName: candyscan-tls
+  # tls:
+  #   - hosts:
+  #       - candyscan.digitaltrust.gov.bc.ca
+  #     secretName: candyscan-tls
   rules:
     - host: candyscan.digitaltrust.gov.bc.ca
       http:
