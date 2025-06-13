@@ -4,7 +4,7 @@ metadata:
   name: candyscan-api
   labels:
     name: candyscan-api
-    app: candyscan-api
+    app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
     role: api
     env: prod
@@ -12,12 +12,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: candyscan-api
+      app: CANdyScan
   template:
     metadata:
       labels:
       name: candyscan-api
-      app: candyscan-api
+      app: CANdyScan
       app.kubernetes.io/part-of: CANdyScan
       role: api
       env: prod

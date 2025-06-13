@@ -4,7 +4,7 @@ metadata:
   name: candyscan-api
   labels:
     name: candyscan-api
-    app: candyscan-api
+    app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
     role: api
     env: prod
@@ -12,7 +12,7 @@ spec:
   description: Allow api ports to be accessed by the web app.
   podSelector:
     matchLabels:
-      app: candyscan-api
+      app: CANdyScan
       role: api
       env: prod
   ingress:
@@ -23,7 +23,7 @@ spec:
               environment: prod
           podSelector:
             matchLabels:
-              app: candyscan-webapp
+              app: CANdyScan
               role: web
               env: prod
       ports:

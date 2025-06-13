@@ -9,7 +9,7 @@ metadata:
     env: prod
 spec:
   selector:
-    app: candyscan-daemon-ui
+    app: CANdyScan
   ports:
     - protocol: TCP
       port: 3710

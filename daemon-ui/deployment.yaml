@@ -4,7 +4,7 @@ metadata:
   name: candyscan-daemon-ui
   labels:
     name: candyscan-daemon-ui
-    app: candyscan-daemon-ui
+    app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
     role: daemon-ui
     env: prod
@@ -12,12 +12,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: candyscan-daemon-ui
+      app: CANdyScan
   template:
     metadata:
       labels:
         name: candyscan-daemon-ui
-        app: candyscan-daemon-ui
+        app: CANdyScan
         app.kubernetes.io/part-of: CANdyScan
         role: daemon-ui
         env: prod

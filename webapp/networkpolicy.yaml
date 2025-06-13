@@ -4,7 +4,7 @@ metadata:
   name: candyscan-webapp
   labels:
     name: candyscan-webapp
-    app: candyscan-webapp
+    app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
     role: web
     env: prod
@@ -12,7 +12,7 @@ spec:
   description: Allow traffic from routes into the webapp container(s).
   podSelector:
     matchLabels:
-      app: candyscan-webapp
+      app: CANdyScan
       role: web
       env: prod
   ingress:

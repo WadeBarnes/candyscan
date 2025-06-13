@@ -4,7 +4,7 @@ metadata:
   name: candyscan-webapp
   labels:
     name: candyscan-webapp
-    app: candyscan-webapp
+    app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
     role: web
     env: prod
@@ -12,12 +12,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: candyscan-webapp
+      app: CANdyScan
   template:
     metadata:
       labels:
         name: candyscan-webapp
-        app: candyscan-webapp
+        app: CANdyScan
         app.kubernetes.io/part-of: CANdyScan
         role: web
         env: prod

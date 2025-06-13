@@ -9,7 +9,7 @@ metadata:
     env: prod
 spec:
   selector:
-    app: candyscan-elasticsearch
+    app: CANdyScan
   ports:
     - name: "9200"
       protocol: TCP

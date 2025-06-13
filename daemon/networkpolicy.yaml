@@ -4,7 +4,7 @@ metadata:
   name: candyscan-daemon
   labels:
     name: candyscan-daemon
-    app: candyscan-daemon
+    app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
     role: daemon
     env: prod
@@ -12,7 +12,7 @@ spec:
   description: Allow daemon ports to be accessed by the web app, and daemon ui.
   podSelector:
     matchLabels:
-      app: candyscan-daemon
+      app: CANdyScan
       role: daemon
       env: prod
   ingress:
@@ -23,7 +23,7 @@ spec:
               environment: prod
           podSelector:
             matchLabels:
-              app: candyscan-webapp
+              app: CANdyScan
               role: web
               env: prod
       ports:
@@ -37,7 +37,7 @@ spec:
               environment: prod
           podSelector:
             matchLabels:
-              app: candyscan-daemon-ui
+              app: CANdyScan
               role: daemon-ui
               env: prod
       ports:

@@ -4,7 +4,7 @@ metadata:
   name: candyscan-elasticsearch
   labels:
     name: candyscan-elasticsearch
-    app: candyscan-elasticsearch
+    app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
     role: search-engine
     env: prod
@@ -12,12 +12,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: candyscan-elasticsearch
+      app: CANdyScan
   template:
     metadata:
       labels:
         name: candyscan-elasticsearch
-        app: candyscan-elasticsearch
+        app: CANdyScan
         app.kubernetes.io/part-of: CANdyScan
         role: search-engine
         env: prod
