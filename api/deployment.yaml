@@ -12,7 +12,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: CANdyScan
+      name: candyscan-api
   template:
     metadata:
       labels:

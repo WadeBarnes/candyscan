@@ -4,6 +4,7 @@ metadata:
   name: candyscan-api
   labels:
     name: candyscan-api
+    app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
     role: api
     env: prod

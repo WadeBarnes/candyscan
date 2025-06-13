@@ -4,12 +4,13 @@ metadata:
   name: candyscan-elasticsearch
   labels:
     name: candyscan-elasticsearch
+    app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
     role: search-engine
     env: prod
 spec:
   selector:
-    app: CANdyScan
+    name: candyscan-elasticsearch
   ports:
     - name: "9200"
       protocol: TCP

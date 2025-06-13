@@ -4,12 +4,13 @@ metadata:
   name: candyscan-daemon-ui
   labels:
     name: candyscan-daemon-ui
+    app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
     role: daemon-ui
     env: prod
 spec:
   selector:
-    app: CANdyScan
+    name: candyscan-daemon-ui
   ports:
     - protocol: TCP
       port: 3710

@@ -5,12 +5,13 @@ metadata:
   name: candyscan-api
   labels:
     name: candyscan-api
+    app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
     role: api
     env: prod
 spec:
   selector:
-    app: CANdyScan
+    name: candyscan-api
   ports:
     - protocol: TCP
       port: 3708

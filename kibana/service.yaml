@@ -4,12 +4,13 @@ metadata:
   name: candyscan-kibana
   labels:
     name: candyscan-kibana
+    app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
     role: kibana
     env: prod
 spec:
   selector:
-    app: CANdyScan
+    name: candyscan-kibana
   ports:
     - protocol: TCP
       port: 5601

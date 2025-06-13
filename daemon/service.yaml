@@ -4,12 +4,13 @@ metadata:
   name: candyscan-daemon
   labels:
     name: candyscan-daemon
+    app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
     role: daemon
     env: prod
 spec:
   selector:
-    app: CANdyScan
+    name: candyscan-daemon
   ports:
     - protocol: TCP
       port: 3709

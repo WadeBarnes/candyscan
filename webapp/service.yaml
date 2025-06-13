@@ -5,12 +5,13 @@ metadata:
   name: candyscan-webapp
   labels:
     name: candyscan-webapp
+    app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
     role: web
     env: prod
 spec:
   selector:
-    app: CANdyScan
+    name: candyscan-webapp
   ports:
     - protocol: TCP
       port: 443
