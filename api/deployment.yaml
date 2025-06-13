@@ -16,11 +16,11 @@ spec:
   template:
     metadata:
       labels:
-      name: candyscan-api
-      app: CANdyScan
-      app.kubernetes.io/part-of: CANdyScan
-      role: api
-      env: prod
+        name: candyscan-api
+        app: CANdyScan
+        app.kubernetes.io/part-of: CANdyScan
+        role: api
+        env: prod
     spec:
       containers:
         - image: pstas/indyscan-api:4.1.0

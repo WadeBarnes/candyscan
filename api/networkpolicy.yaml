@@ -27,7 +27,7 @@ spec:
               role: web
               env: prod
       ports:
-        - port: "3708"
+        - port: 3708
           protocol: TCP
   policyTypes:
     - Ingress

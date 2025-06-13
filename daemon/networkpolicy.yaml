@@ -27,7 +27,7 @@ spec:
               role: web
               env: prod
       ports:
-        - port: "3709"
+        - port: 3709
           protocol: TCP
 
     - from:
@@ -41,7 +41,7 @@ spec:
               role: daemon-ui
               env: prod
       ports:
-        - port: "3709"
+        - port: 3709
           protocol: TCP
   policyTypes:
     - Ingress

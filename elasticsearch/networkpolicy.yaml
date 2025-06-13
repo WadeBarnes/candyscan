@@ -27,7 +27,7 @@ spec:
               role: api
               env: prod
       ports:
-        - port: "9200"
+        - port: 9200
           protocol: TCP
     - from:
         - namespaceSelector:
@@ -40,7 +40,7 @@ spec:
               role: daemon
               env: prod
       ports:
-        - port: "9200"
+        - port: 9200
           protocol: TCP
     - from:
         - namespaceSelector:
@@ -53,7 +53,7 @@ spec:
               role: search-engine-ui
               env: prod
       ports:
-        - port: "9200"
+        - port: 9200
           protocol: TCP
   policyTypes:
     - Ingress
