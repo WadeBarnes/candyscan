@@ -23,5 +23,6 @@ resources:
 - ./kibana/service.yaml
 
 - ./webapp/deployment.yaml
+- ./webapp/ingress.yaml
 - ./webapp/networkpolicy.yaml
 - ./webapp/service.yaml
