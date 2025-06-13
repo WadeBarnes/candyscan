@@ -5,6 +5,7 @@ metadata:
   labels:
     name: candyscan-kibana
     app.kubernetes.io/part-of: CANdyScan
+    role: kibana
     env: prod
 spec:
   selector:

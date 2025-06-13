@@ -3,7 +3,10 @@ kind: ConfigMap
 metadata:
   name: candyscan-daemon
   labels:
+    name: candyscan-daemon
+    app: candyscan-daemon
     app.kubernetes.io/part-of: CANdyScan
+    role: daemon
     env: prod
 data:
   daemon_config.json: |

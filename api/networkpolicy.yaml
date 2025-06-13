@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: candyscan-api
+  labels:
+    name: candyscan-api
+    app: candyscan-api
+    app.kubernetes.io/part-of: CANdyScan
+    role: api
+    env: prod
+spec:
+  description: Allow api ports to be accessed by the web app.
+  podSelector:
+    matchLabels:
+      app: candyscan-api
+      role: api
+      env: prod
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: ca7f8f
+              environment: prod
+          podSelector:
+            matchLabels:
+              app: candyscan-webapp
+              role: web
+              env: prod
+      ports:
+        - port: "3708"
+          protocol: TCP
+  policyTypes:
+    - Ingress

@@ -5,6 +5,7 @@ metadata:
   labels:
     name: candyscan-elasticsearch
     app.kubernetes.io/part-of: CANdyScan
+    role: search-engine
     env: prod
 spec:
   selector:

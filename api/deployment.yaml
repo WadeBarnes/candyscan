@@ -6,6 +6,7 @@ metadata:
     name: candyscan-api
     app: candyscan-api
     app.kubernetes.io/part-of: CANdyScan
+    role: api
     env: prod
 spec:
   replicas: 1
@@ -18,6 +19,7 @@ spec:
       name: candyscan-api
       app: candyscan-api
       app.kubernetes.io/part-of: CANdyScan
+      role: api
       env: prod
     spec:
       containers:

@@ -5,6 +5,7 @@ metadata:
   labels:
     name: candyscan-daemon
     app.kubernetes.io/part-of: CANdyScan
+    role: daemon
     env: prod
 spec:
   selector:

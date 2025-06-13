@@ -6,6 +6,7 @@ metadata:
   labels:
     name: candyscan-webapp
     app.kubernetes.io/part-of: CANdyScan
+    role: web
     env: prod
 spec:
   selector:

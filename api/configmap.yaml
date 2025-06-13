@@ -5,6 +5,7 @@ metadata:
   labels:
     name: candyscan-api
     app.kubernetes.io/part-of: CANdyScan
+    role: api
     env: prod
 data:
   api_config.json: |

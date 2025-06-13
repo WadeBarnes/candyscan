@@ -1,0 +1,59 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: candyscan-elasticsearch
+  labels:
+    name: candyscan-elasticsearch
+    app: candyscan-elasticsearch
+    app.kubernetes.io/part-of: CANdyScan
+    role: search-engine
+    env: prod
+spec:
+  description: Allow search engine ports to be accessed by the api, daemon, and kibana.
+  podSelector:
+    matchLabels:
+      app: candyscan-elasticsearch
+      role: search-engine
+      env: prod
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: ca7f8f
+              environment: prod
+          podSelector:
+            matchLabels:
+              app: candyscan-api
+              role: api
+              env: prod
+      ports:
+        - port: "9200"
+          protocol: TCP
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: ca7f8f
+              environment: prod
+          podSelector:
+            matchLabels:
+              app: candyscan-daemon
+              role: daemon
+              env: prod
+      ports:
+        - port: "9200"
+          protocol: TCP
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: ca7f8f
+              environment: prod
+          podSelector:
+            matchLabels:
+              app: candyscan-kibana
+              role: kibana
+              env: prod
+      ports:
+        - port: "9200"
+          protocol: TCP
+  policyTypes:
+    - Ingress

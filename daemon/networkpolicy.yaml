@@ -1,0 +1,47 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: candyscan-daemon
+  labels:
+    name: candyscan-daemon
+    app: candyscan-daemon
+    app.kubernetes.io/part-of: CANdyScan
+    role: daemon
+    env: prod
+spec:
+  description: Allow daemon ports to be accessed by the web app, and daemon ui.
+  podSelector:
+    matchLabels:
+      app: candyscan-daemon
+      role: daemon
+      env: prod
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: ca7f8f
+              environment: prod
+          podSelector:
+            matchLabels:
+              app: candyscan-webapp
+              role: web
+              env: prod
+      ports:
+        - port: "3709"
+          protocol: TCP
+
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: ca7f8f
+              environment: prod
+          podSelector:
+            matchLabels:
+              app: candyscan-daemon-ui
+              role: daemon-ui
+              env: prod
+      ports:
+        - port: "3709"
+          protocol: TCP
+  policyTypes:
+    - Ingress

@@ -6,6 +6,7 @@ metadata:
     name: candyscan-elasticsearch
     io.kompose.service: candyscan-elasticsearch
     app.kubernetes.io/part-of: CANdyScan
+    role: search-engine
     env: prod
 spec:
   accessModes:

@@ -6,6 +6,7 @@ metadata:
     name: candyscan-daemon-ui
     app: candyscan-daemon-ui
     app.kubernetes.io/part-of: CANdyScan
+    role: daemon-ui
     env: prod
 spec:
   replicas: 1
@@ -18,6 +19,7 @@ spec:
         name: candyscan-daemon-ui
         app: candyscan-daemon-ui
         app.kubernetes.io/part-of: CANdyScan
+        role: daemon-ui
         env: prod
     spec:
       containers:

@@ -6,23 +6,24 @@ metadata:
   labels:
     name: candyscan-webapp
     app.kubernetes.io/part-of: CANdyScan
+    role: web
     env: prod
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   rules:
-  - host: candyscan.idlab.org
-    http:
-      paths:
-      - backend:
-          service:
-            name: candyscan-webapp
-            port:
-              number: 443
-        path: /
-        pathType: ImplementationSpecific
+    - host: candyscan.idlab.org
+      http:
+        paths:
+          - backend:
+              service:
+                name: candyscan-webapp
+                port:
+                  number: 443
+            path: /
+            pathType: ImplementationSpecific
   tls:
-  - hosts:
-    - candyscan.idlab.org
-    secretName: candyscan-idlab-tls
+    - hosts:
+        - candyscan.idlab.org
+      secretName: candyscan-idlab-tls

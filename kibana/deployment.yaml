@@ -6,6 +6,7 @@ metadata:
     name: candyscan-kibana
     app: candyscan-kibana
     app.kubernetes.io/part-of: CANdyScan
+    role: kibana
     env: prod
 spec:
   replicas: 1
@@ -18,6 +19,7 @@ spec:
         name: candyscan-kibana
         app: candyscan-kibana
         app.kubernetes.io/part-of: CANdyScan
+        role: kibana
         env: prod
     spec:
       containers:
