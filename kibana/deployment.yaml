@@ -1,32 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: candyscan-kibana
+  name: candyscan-search-engine-ui
   labels:
-    name: candyscan-kibana
+    name: candyscan-search-engine-ui
     app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
-    role: kibana
+    role: search-engine-ui
     env: prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: candyscan-kibana
+      name: candyscan-search-engine-ui
   template:
     metadata:
       labels:
-        name: candyscan-kibana
+        name: candyscan-search-engine-ui
         app: CANdyScan
         app.kubernetes.io/part-of: CANdyScan
-        role: kibana
+        role: search-engine-ui
         env: prod
     spec:
       containers:
         - image: docker.elastic.co/kibana/kibana:7.6.1
-          name: candyscan-kibana
+          name: candyscan-search-engine-ui
           ports:
             - containerPort: 5601
           env:
             - name: ELASTICSEARCH_HOSTS
-              value: http://candyscan-elasticsearch:9200
+              value: http://candyscan-search-engine:9200

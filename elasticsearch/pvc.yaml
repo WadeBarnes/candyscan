@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: candyscan-elasticsearch
+  name: candyscan-search-engine
   labels:
-    name: candyscan-elasticsearch
+    name: candyscan-search-engine
     app: CANdyScan
-    io.kompose.service: candyscan-elasticsearch
+    io.kompose.service: candyscan-search-engine
     app.kubernetes.io/part-of: CANdyScan
     role: search-engine
     env: prod

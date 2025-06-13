@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: candyscan-webapp
+  name: candyscan-web
   labels:
-    name: candyscan-webapp
+    name: candyscan-web
     app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
     role: web
@@ -12,18 +12,18 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      name: candyscan-webapp
+      name: candyscan-web
   template:
     metadata:
       labels:
-        name: candyscan-webapp
+        name: candyscan-web
         app: CANdyScan
         app.kubernetes.io/part-of: CANdyScan
         role: web
         env: prod
     spec:
       containers:
-        - name: candyscan-webapp
+        - name: candyscan-web
           image: idlab-docker.internal.idlab.org/idlab.org/solution_catalogue/indy/candyscan/webapp:0.0.2
           ports:
             - containerPort: 3707

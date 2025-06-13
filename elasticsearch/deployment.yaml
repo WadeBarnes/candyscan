@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: candyscan-elasticsearch
+  name: candyscan-search-engine
   labels:
-    name: candyscan-elasticsearch
+    name: candyscan-search-engine
     app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
     role: search-engine
@@ -12,18 +12,18 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      name: candyscan-elasticsearch
+      name: candyscan-search-engine
   template:
     metadata:
       labels:
-        name: candyscan-elasticsearch
+        name: candyscan-search-engine
         app: CANdyScan
         app.kubernetes.io/part-of: CANdyScan
         role: search-engine
         env: prod
     spec:
       containers:
-        - name: candyscan-elasticsearch
+        - name: candyscan-search-engine
           ports:
             - containerPort: 9200
             - containerPort: 9300
@@ -39,8 +39,8 @@ spec:
                 - IPC_LOCK
           volumeMounts:
             - mountPath: /usr/share/elasticsearch/data
-              name: candyscan-elasticsearch
+              name: candyscan-search-engine
       volumes:
-        - name: candyscan-elasticsearch
+        - name: candyscan-search-engine
           persistentVolumeClaim:
-            claimName: candyscan-elasticsearch
+            claimName: candyscan-search-engine

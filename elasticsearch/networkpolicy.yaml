@@ -1,9 +1,9 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: candyscan-elasticsearch
+  name: candyscan-search-engine
   labels:
-    name: candyscan-elasticsearch
+    name: candyscan-search-engine
     app: CANdyScan
     app.kubernetes.io/part-of: CANdyScan
     role: search-engine
@@ -50,7 +50,7 @@ spec:
           podSelector:
             matchLabels:
               app: CANdyScan
-              role: kibana
+              role: search-engine-ui
               env: prod
       ports:
         - port: "9200"

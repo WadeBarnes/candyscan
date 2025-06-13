@@ -31,7 +31,7 @@ spec:
             - name: AUTOSTART
               value: "true"
             - name: ES_URL
-              value: http://candyscan-elasticsearch:9200
+              value: http://candyscan-search-engine:9200
             - name: LOG_HTTP_REQUESTS
               value: "true"
             - name: LOG_HTTP_RESPONSES

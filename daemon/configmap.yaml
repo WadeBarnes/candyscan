@@ -13,7 +13,7 @@ data:
     {
       "env": {
         "INDY_NETWORK": "CANDY_DEV",
-        "ES_URL": "http://candyscan-elasticsearch:9200",
+        "ES_URL": "http://candyscan-search-engine:9200",
         "ES_INDEX": "txs-candydev"
       },
       "workersBuildersTemplate": [
