@@ -14,10 +14,10 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: openshift-default
-  # tls:
-  #   - hosts:
-  #       - candyscan.digitaltrust.gov.bc.ca
-  #     secretName: candyscan-tls
+  tls:
+    - hosts:
+        - candyscan.digitaltrust.gov.bc.ca
+      secretName: candyscan-tls
   rules:
     - host: candyscan.digitaltrust.gov.bc.ca
       http:
