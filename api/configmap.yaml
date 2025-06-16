@@ -20,7 +20,7 @@ data:
                 "description": "Development network for collaboration between Québec, Ontario and British-Columbia.",
                 "tutorial": "Find out more information",
                 "tutorial-link": "https://github.com/ICCS-ISAC/dtrust-reconu",
-                "logo-address": "https://candy.idlab.org/cdn/icon"
+                "logo-address": "https://raw.githubusercontent.com/ICCS-ISAC/Candy/ab89d89a007a99ab169f7ed90b3890c43f246300/assets/Logo%20mark/RGB/CANdy%20logomark.png"
             },
             "aliases": [
                 "CANDY_DEV"
@@ -38,7 +38,7 @@ data:
                 "description": "Test network for collaboration between Québec, Ontario and British-Columbia.",
                 "tutorial": "Find out more information",
                 "tutorial-link": "https://github.com/ICCS-ISAC/dtrust-reconu",
-                "logo-address": "https://candy.idlab.org/cdn/icon"
+                "logo-address": "https://raw.githubusercontent.com/ICCS-ISAC/Candy/ab89d89a007a99ab169f7ed90b3890c43f246300/assets/Logo%20mark/RGB/CANdy%20logomark.png"
             },
             "aliases": [
                 "CANDY_TEST"
@@ -56,7 +56,7 @@ data:
                 "description": "Production network for collaboration between Québec, Ontario and British-Columbia.",
                 "tutorial": "Find out more information",
                 "tutorial-link": "https://github.com/ICCS-ISAC/dtrust-reconu",
-                "logo-address": "https://candy.idlab.org/cdn/icon"
+                "logo-address": "https://raw.githubusercontent.com/ICCS-ISAC/Candy/ab89d89a007a99ab169f7ed90b3890c43f246300/assets/Logo%20mark/RGB/CANdy%20logomark.png"
             },
             "aliases": [
                 "CANDY_PROD"
