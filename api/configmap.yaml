@@ -11,22 +11,58 @@ metadata:
 data:
   api_config.json: |
     [
-      {
-        "id": "CANDY_DEV",
-        "ui": {
-          "priority": 1,
-          "display": "CANdy-dev",
-          "display-long": "CANdy-dev Indy Network",
-          "description": "Development network for collaboration between Quebec, Ontario and British-Columbia.",
-          "tutorial": "This Indy Explorer is hosted in Canada by IDLab",
-          "tutorial-link": "https://idlab.org/",
-          "logo-address": ""
+        {
+            "id": "CANDY_DEV",
+            "ui": {
+                "priority": 1,
+                "display": "CANdy-dev",
+                "display-long": "CANdy-dev Indy Network",
+                "description": "Development network for collaboration between Québec, Ontario and British-Columbia.",
+                "tutorial": "Find out more information",
+                "tutorial-link": "https://github.com/ICCS-ISAC/dtrust-reconu",
+                "logo-address": "https://candy.idlab.org/cdn/icon"
+            },
+            "aliases": [
+                "CANDY_DEV"
+            ],
+            "es": {
+                "index": "txs-candydev"
+            }
         },
-        "aliases": [
-          "CANDY_DEV"
-        ],
-        "es" : {
-          "index": "txs-candydev"
+        {
+            "id": "CANDY_TEST",
+            "ui": {
+                "priority": 2,
+                "display": "CANdy-test",
+                "display-long": "CANdy-test Indy Network",
+                "description": "Test network for collaboration between Québec, Ontario and British-Columbia.",
+                "tutorial": "Find out more information",
+                "tutorial-link": "https://github.com/ICCS-ISAC/dtrust-reconu",
+                "logo-address": "https://candy.idlab.org/cdn/icon"
+            },
+            "aliases": [
+                "CANDY_TEST"
+            ],
+            "es": {
+                "index": "txs-candytest"
+            }
+        },
+        {
+            "id": "CANDY_PROD",
+            "ui": {
+                "priority": 2,
+                "display": "CANdy-prod",
+                "display-long": "CANdy-prod Indy Network",
+                "description": "Production network for collaboration between Québec, Ontario and British-Columbia.",
+                "tutorial": "Find out more information",
+                "tutorial-link": "https://github.com/ICCS-ISAC/dtrust-reconu",
+                "logo-address": "https://candy.idlab.org/cdn/icon"
+            },
+            "aliases": [
+                "CANDY_PROD"
+            ],
+            "es": {
+                "index": "txs-candyprod"
+            }
         }
-      }
     ]

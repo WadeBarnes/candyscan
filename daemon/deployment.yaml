@@ -23,8 +23,10 @@ spec:
         env: prod
     spec:
       containers:
-        - image: ghcr.io/patrik-stas/indyscan/indyscan-daemon:4.6.1
-          name: candyscan-daemon
+
+        - name: candyscan-daemon
+          # image: ghcr.io/patrik-stas/indyscan/indyscan-daemon:4.6.1
+          image: image-registry.openshift-image-registry.svc:5000/ca7f8f-tools/indyscan-daemon-ocp:4.6.1
           env:
             - name: AUTOSTART
               value: "true"
@@ -41,20 +43,44 @@ spec:
             - name: SERVER_PORT
               value: "3709"
             - name: WORKER_CONFIGS
-              value: /home/indyscan/indyscan-daemon/app-configs/candydev.json
+              value: /home/indyscan/indyscan-daemon/app-configs/candydev.json,/home/indyscan/indyscan-daemon/app-configs/candytest.json,/home/indyscan/indyscan-daemon/app-configs/candyprod.json
+
           volumeMounts:
             - mountPath: /home/indyscan/indyscan-daemon/app-configs/candydev.json
               name: candyscan-daemon-volume
               subPath: candydev.json
+            - mountPath: /home/indyscan/indyscan-daemon/app-configs/candytest.json
+              name: candyscan-daemon-volume
+              subPath: candytest.json
+            - mountPath: /home/indyscan/indyscan-daemon/app-configs/candyprod.json
+              name: candyscan-daemon-volume
+              subPath: candyprod.json
+
             - mountPath: /home/indyscan/indyscan-daemon/app-configs/genesis/CANDY_DEV.txn
               name: candyscan-daemon-volume
               subPath: candydev.txn
+            - mountPath: /home/indyscan/indyscan-daemon/app-configs/genesis/CANDY_TEST.txn
+              name: candyscan-daemon-volume
+              subPath: candytest.txn
+            - mountPath: /home/indyscan/indyscan-daemon/app-configs/genesis/CANDY_PROD.txn
+              name: candyscan-daemon-volume
+              subPath: candyprod.txn
+
       volumes:
         - name: candyscan-daemon-volume
           configMap:
             name: candyscan-daemon
             items:
-              - key: daemon_config.json
+              - key: candydev.json
                 path: candydev.json
+              - key: candytest.json
+                path: candytest.json
+              - key: candyprod.json
+                path: candyprod.json
+
               - key: candydev.txn
                 path: candydev.txn
+              - key: candytest.txn
+                path: candytest.txn
+              - key: candyprod.txn
+                path: candyprod.txn
