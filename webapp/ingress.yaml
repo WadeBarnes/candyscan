@@ -11,7 +11,6 @@ metadata:
     env: prod
   annotations:
     kubernetes.io/ingress.class: openshift-default
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: openshift-default
   tls:
