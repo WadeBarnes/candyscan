@@ -53,7 +53,7 @@ data:
                 "priority": 2,
                 "display": "CANdy-prod",
                 "display-long": "CANdy-prod Indy Network",
-                "description": "Production network for collaboration between Québec, Ontario and British-Columbia.",
+                "description": "Production network for collaboration between Québec and British-Columbia.",
                 "tutorial": "Find out more information",
                 "tutorial-link": "https://github.com/ICCS-ISAC/dtrust-reconu",
                 "logo-address": "https://raw.githubusercontent.com/ICCS-ISAC/Candy/ab89d89a007a99ab169f7ed90b3890c43f246300/assets/Logo%20mark/RGB/CANdy%20logomark.png"
