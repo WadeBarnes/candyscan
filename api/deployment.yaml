@@ -37,7 +37,7 @@ spec:
             - name: LOG_HTTP_RESPONSES
               value: "true"
             - name: LOG_LEVEL
-              value: debug
+              value: info
             - name: NETWORKS_CONFIG_PATH
               value: /home/indyscan/indyscan-api/app-config/candydev.json
             - name: PORT
